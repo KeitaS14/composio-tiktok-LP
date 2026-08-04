@@ -1,0 +1,271 @@
+/* TikTok Content Assistant — styles.css
+   Plain, static, dependency-free. System fonts only. */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f6f7f9;
+  --text: #1a1d21;
+  --text-muted: #525964;
+  --border: #d8dce2;
+  --accent: #14617a;        /* restrained teal accent */
+  --accent-strong: #0c4759;
+  --focus: #14617a;
+  --max-width: 760px;
+  --radius: 8px;
+  --gutter: clamp(16px, 5vw, 32px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--accent-strong);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---------- Header / Nav ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.site-header__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.site-header__brand {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  color: var(--text-muted);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 4px 2px;
+}
+
+.site-nav a:hover {
+  color: var(--accent-strong);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--accent-strong);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* ---------- Main ---------- */
+
+.site-main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 48px var(--gutter) 64px;
+}
+
+main h1 {
+  font-size: clamp(1.9rem, 6vw, 2.4rem);
+  line-height: 1.2;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+main h2 {
+  font-size: 1.3rem;
+  margin: 40px 0 12px;
+}
+
+main p {
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.updated {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0 0 32px;
+}
+
+/* ---------- Cards / sections ---------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.card p:last-child,
+.card li:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Legal prose ---------- */
+
+.legal ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.legal ol li {
+  margin-bottom: 14px;
+}
+
+.legal h2 {
+  margin-top: 36px;
+}
+
+/* ---------- Contact block ---------- */
+
+.contact {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-top: 32px;
+}
+
+.contact h2 {
+  margin-top: 0;
+}
+
+.contact__meta {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact__meta li {
+  margin-bottom: 6px;
+}
+
+.contact__meta strong {
+  display: inline-block;
+  min-width: 7em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.site-footer__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 28px var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.site-footer a {
+  color: var(--text-muted);
+}
+
+.site-footer a:hover {
+  color: var(--accent-strong);
+}
+
+.site-footer__year {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 560px) {
+  .site-header__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .site-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact__meta strong {
+    display: block;
+    min-width: 0;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
